@@ -86,6 +86,7 @@ calcularValorTotal = function () {
        */
             
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
+    mostrarTexto("lblResumen", "Valor a pagar por "+cantidad+" "+ nombreProducto+" con "+valorDescuento+" de descuento es: USD "+valorTotal);
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
