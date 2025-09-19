@@ -11,7 +11,15 @@ saludar=function(){
     //mostrar texto
     let mensajeBienvenido="Bienvenido "+nombre+" "+apellido;
     mostrarTexto("lblResultado",mensajeBienvenido);
+    //mostrar img
+    mostrarImagen("imgSaludo","./imagenes/saludoNaruto.gif");
 
+};
+
+//funcion para mostrar img
+mostrarImagen=function(idComponente,rutaImagen){
+    let componente=document.getElementById(idComponente);
+    componente.src=rutaImagen;
 };
 
 //funcion para mostrar texto
