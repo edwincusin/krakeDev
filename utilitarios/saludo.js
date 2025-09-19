@@ -13,6 +13,8 @@ saludar=function(){
     mostrarTexto("lblResultado",mensajeBienvenido);
     //mostrar img
     mostrarImagen("imgSaludo","./imagenes/saludoNaruto.gif");
+    //mostrar texto en caja
+    mostrarTextoEnCaja("txtNombre","");
 
 };
 
@@ -26,6 +28,12 @@ mostrarImagen=function(idComponente,rutaImagen){
 mostrarTexto=function(idComponente,mensaje){
     let componente=document.getElementById(idComponente);
     componente.innerText=mensaje;
+};
+
+//funcion mostrar texto en  una caja
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente=document.getElementById(idComponente);
+    componente.value=mensaje;
 };
 
 //funcion para recuperar texto
