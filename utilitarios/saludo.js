@@ -8,6 +8,16 @@ saludar=function(){
     let edad=recuperarInt("txtEdad");
     //recuperar float
     let estatura=recuperarFloat("txtEstatura")
+    //mostrar texto
+    let mensajeBienvenido="Bienvenido "+nombre+" "+apellido;
+    mostrarTexto("lblResultado",mensajeBienvenido);
+
+};
+
+//funcion para mostrar texto
+mostrarTexto=function(idComponente,mensaje){
+    let componente=document.getElementById(idComponente);
+    componente.innerText=mensaje;
 };
 
 //funcion para recuperar texto
@@ -30,3 +40,4 @@ recuperarFloat=function(idComponente){
     let valorFloat=parseFloat(valorCaja);
     return valorFloat;
 };
+
