@@ -8,5 +8,11 @@ calcularPromedioNotas=function(){
 
     let promedio=calcularPromedio(nota1,nota2,nota3).toFixed(2);
 
-    mostrarTexto("lblPromedio","Resultado: "+promedio)
+    mostrarTexto("lblPromedio","Resultado: "+promedio);
+
+    if(promedio > 7){
+        mostrarImagen("imgCalificacion","./exito.gif");
+    }else{
+        mostrarImagen("imgCalificacion","./reprobado.gif");
+    }
 };
