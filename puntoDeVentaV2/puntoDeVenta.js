@@ -21,7 +21,7 @@ calcularValorTotal = function () {
     cantidadTxt=recuperarTexto("txtCantidad");
   
     
-    if((esCantidadValida(cantidad, cantidadTxt,"lblError2")) & (esPrecioValido(precioProducto,precioTxt,"lblError3")) & (esProductoValido(nombreProducto,"lblError1"))){
+    if((esProductoValido(nombreProducto,"lblError1")) && (esCantidadValida(cantidad, cantidadTxt,"lblError2")) && (esPrecioValido(precioProducto,precioTxt,"lblError3"))){
         valorSubtotal=calcularSubtotal(precioProducto,cantidad);
         mostrarTexto("lblSubtotal",valorSubtotal);
         valorDescuento=calcularDescuentoPorVolumen(valorSubtotal,cantidad);
