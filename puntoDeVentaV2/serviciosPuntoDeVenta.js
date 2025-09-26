@@ -19,7 +19,8 @@ calcularSubtotal=function(precio,cantidad){
 //funcion calcular total
 calcularTotal=function(subtotal,descuento,iva){
     let total=subtotal-descuento+iva;
-    return total;
+
+    return parseFloat(total).toFixed(2);
 };
 
 //funcion calcular descuento volumen

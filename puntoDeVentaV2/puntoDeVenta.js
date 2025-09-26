@@ -10,20 +10,23 @@ calcularValorTotal = function () {
     let valorDescuento;
     let valorIVA;
     let valorTotal;
+    let precioTxt;
+    let cantidadTxt;
 
     nombreProducto=recuperarTexto("txtProducto");
     precioProducto=recuperarFloat("txtPrecio");
     cantidad=recuperarInt("txtCantidad");
-
-
+    //recupero texto de cantidad y precio para validad campo vacio
+    precioTxt=recuperarTexto("txtPrecio");
+    cantidadTxt=recuperarTexto("txtCantidad");
+  
     
-    
-    if((esCantidadValida(cantidad,"lblError2")) & (esPrecioValido(precioProducto,"lblError3"))){
+    if((esCantidadValida(cantidad, cantidadTxt,"lblError2")) & (esPrecioValido(precioProducto,precioTxt,"lblError3")) & (esProductoValido(nombreProducto,"lblError1"))){
         valorSubtotal=calcularSubtotal(precioProducto,cantidad);
         mostrarTexto("lblSubtotal",valorSubtotal);
         valorDescuento=calcularDescuentoPorVolumen(valorSubtotal,cantidad);
         mostrarTexto("lblDescuento",valorDescuento);
-        valorIVA=calcularIVA(valorSubtotal-valorDescuento).toFixed(2);
+        valorIVA=calcularIVA(valorSubtotal-valorDescuento);
         mostrarTexto("lblValorIVA",valorIVA); 
         valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
         mostrarTexto("lblTotal",valorTotal);
@@ -36,13 +39,18 @@ calcularValorTotal = function () {
 
 };
 
-
-esCantidadValida=function(cantidad,idComponente){
+esCantidadValida=function(cantidad,cantidadTxt,idComponente){
     let existeError=false;
-
-    if(isNaN(cantidad)){
-        mostrarTexto(idComponente,"DEBE INGRESAR UN NUMERO");
+    let tamanio=cantidadTxt.length;
+    if(tamanio  == 0 ){
+        mostrarTexto(idComponente,"CAMPO OBLIGATORIO");
         existeError=true;
+    }else{
+
+        if(isNaN(cantidad)){
+            mostrarTexto(idComponente,"DEBE INGRESAR UN NUMERO");
+            existeError=true;
+        }
     }
     if(cantidad < 1 || cantidad > 100){
         mostrarTexto(idComponente,"CANTIDAD DEBE SER DE 1 A 100");
@@ -54,12 +62,17 @@ esCantidadValida=function(cantidad,idComponente){
     return !existeError;
 };
 
-esPrecioValido=function(precio,idComponente){
+esPrecioValido=function(precio, precioTxt, idComponente){
     let existeError=false;
-
-    if(isNaN(precio)){
-        mostrarTexto(idComponente,"DEBE INGRESAR UN NUMERO");
+    let tamanio=precioTxt.length;
+    if(tamanio  == 0 ){
+        mostrarTexto(idComponente,"CAMPO OBLIGATORIO");
         existeError=true;
+    }else{ 
+        if (isNaN(precio)){
+            mostrarTexto(idComponente,"DEBE INGRESAR UN NUMERO");
+            existeError=true;
+        }
     }
     if(precio < 1 || precio > 50){
         mostrarTexto(idComponente,"CANTIDAD DEBE SER DE 1 A 50");
@@ -68,11 +81,27 @@ esPrecioValido=function(precio,idComponente){
     if(existeError == false){
         mostrarTexto(idComponente,"");
     }    
-    return !existeError;
+    return !existeError;    
 };
 
+esProductoValido=function(producto,idComponente){
+    let existeError=false;
+    let tamanio=producto.length;
 
-
+    if(tamanio  == 0 ){
+        mostrarTexto(idComponente,"CAMPO OBLIGATORIO");
+        existeError=true;
+    }else {
+        if(tamanio  < 1 || tamanio > 10){
+        mostrarTexto(idComponente,"MAXIMO 10 CARACTERES");
+        existeError=true;
+         }
+    }
+    if(existeError == false){
+        mostrarTexto(idComponente,"");
+    }    
+    return !existeError;
+};
 
 
 limpiar = function () {
