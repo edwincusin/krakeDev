@@ -1,0 +1,127 @@
+body{
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.principal{
+    background-image: url(./img/fondocolor.jpg);
+    background-size: cover;
+    border-color: white;
+    margin:10px;
+    display:flex;
+    flex-direction:column;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+}
+.titulo{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+    background-image: url(./img/bandera.png);
+    padding-bottom: 45PX;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    
+}
+
+.contenido{
+    background-color: rgba(231, 231, 231, 0.76);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 40px;
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.ingresoDatos{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-content:center;
+}
+
+.tituloCampo{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.contenedorCajaTexto{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.cajaTextoPlaca{
+    margin-top: 10px ;
+    margin-bottom: 10px;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center;
+    width:25%;
+    border-color: black ;
+    border-width: 4px;
+    border-radius: 20px;
+    background-image: url(./img/universo.jpg);
+    background-size: cover;
+    color: aliceblue;
+}
+
+.contenedorBoton{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+}
+
+.estiloBoton{
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 15px 25px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    border-color: blue;
+    background-color: rgb(219, 180, 255);
+    border-radius: 5px;
+}
+.estiloBoton:hover {
+    background-color:white; 
+    color: #4CAF50;
+    border:1px;
+    border-color: #4CAF50;
+    border-radius: 10px;
+}
+.contenedorResultados{
+    display:flex;
+    flex: 1;
+    flex-direction:column;
+    justify-content: center;
+    align-content:center;
+}
+.informacion{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 5px 20px;
+}
+
+.piePagina{
+    text-align: center;
+    margin-top: 200px;
+    background-color: azure;
+}
