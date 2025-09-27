@@ -80,8 +80,10 @@ body{
 
 .contenedorBoton{
     display: flex;
+    flex: 2;
+    flex-direction:row;
     justify-content:center;
-    align-content: center;
+    align-content:center;
 }
 
 .estiloBoton{
@@ -93,6 +95,8 @@ body{
     border-color: blue;
     background-color: rgb(219, 180, 255);
     border-radius: 5px;
+    margin-left: 10PX;
+    margin-right: 10PX;
 }
 .estiloBoton:hover {
     background-color:white; 

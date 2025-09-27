@@ -35,3 +35,13 @@ validarPlaca=function(){
         mostrarTexto("lblPicoYPlaca","");
     }
 };
+
+//funcion limpiar componentes texto
+limpiar=function(){
+    mostrarTextoEnCaja("txtPlaca","");
+    mostrarTexto("lblValidacion","");
+    mostrarTexto("lblErrores","");
+    mostrarTexto("lblProvincia","")
+    mostrarTexto("lblTipoVehiculo","");
+    mostrarTexto("lblPicoYPlaca","");
+};
