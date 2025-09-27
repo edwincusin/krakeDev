@@ -26,7 +26,7 @@ generarElemento=function(){
 };
 
 //funciona determinar jugador
-determinarganador=function(eleccionJugador1,eleccionJugador2){
+determinarGanador=function(eleccionJugador1,eleccionJugador2){
     let resultadoGanador;
     eleccionJugador1="TIJERA";
     eleccionJugador2="PAPEL"
