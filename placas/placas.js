@@ -2,20 +2,28 @@
 validarPlaca=function(){
     let placa=recuperarTexto("txtPlaca");
     let provincia;
+    let tipoVehiculo;
     let erroresEstructura=validarEstructura(placa);
     if(erroresEstructura == ""){
         mostrarTexto("lblValidacion","ESTRUCTURA VÁLIDA");
         mostrarTexto("lblErrores",erroresEstructura);
+        //MOSTRAR PROVINCIA A LA QUE PERTENECE
         provincia=obtenerProvincia(placa);
         if(provincia != ""){
-            mostrarTexto("lblProvincia","PERTENECE A LA PROVINCIA: "+provincia);
+            mostrarTexto("lblProvincia",provincia);
         }else{
             mostrarTexto("lblProvincia","PROVINCIA INCORRECTA")
         }
+        //MOSTRAR TIPO VEHICULO
+        tipoVehiculo=obtenerTipoVehiculo(placa);
+        if(tipoVehiculo != ""){
+            mostrarTexto("lblTipoVehiculo",tipoVehiculo);
+        }
+
     }else{
         mostrarTexto("lblValidacion","ESTRUCTURA INCORRECTA");
-        console.log(erroresEstructura);
         mostrarTexto("lblErrores",erroresEstructura);
         mostrarTexto("lblProvincia","")
+        mostrarTexto("lblTipoVehiculo","");
     }
 };

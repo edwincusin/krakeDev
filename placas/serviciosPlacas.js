@@ -128,6 +128,30 @@ obtenerProvincia=function(placa){
     if(primeraLetra == "Y"){
         provincia="SANTA ELENA";
     }
+    return "PERTENECE A LA PROVINCIA: "+provincia;
+};
 
-    return provincia;
+//funcion para obtener el tipo de vehiculo, se detemina con el segundo caracter.
+obtenerTipoVehiculo=function(placa){
+    let segundaLetra=placa.charAt(1);
+    let tipoVehiculo="";
+    if((segundaLetra == "A") || (segundaLetra == "Z")){
+        tipoVehiculo="COMERCIAL (TAXI/AUTOBUSES)";
+    }
+    if(segundaLetra == "E"){
+        tipoVehiculo="GUBERNAMNETALES";
+    }
+    if(segundaLetra == "X"){
+        tipoVehiculo="DE USO OFICIAL";
+    }   
+    if(segundaLetra == "S"){
+        tipoVehiculo="DEL GOBIERNO PROVINCIAL";
+    }
+    if(segundaLetra == "M"){
+        tipoVehiculo = "MUNICIPAL";
+    }
+    if((segundaLetra !="A") && (segundaLetra !="E") && (segundaLetra !="X") && (segundaLetra !="S") && (segundaLetra !="M") && (segundaLetra !="Z")){
+        tipoVehiculo ="PARTICULAR";    
+    }
+    return "EL TIPO DE VEHICULO ES: "+tipoVehiculo;
 };
