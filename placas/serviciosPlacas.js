@@ -58,7 +58,7 @@ validarEstructura=function(placa){
 // funcion obtener provincia / determinar la provincia segun el primera letra de la placa
 obtenerProvincia=function(placa){
     let primeraLetra=placa.charAt(0);
-    let provincia="";
+    let provincia=null;
     if(primeraLetra == "A"){
         provincia="AZUAY";
     }
@@ -134,7 +134,7 @@ obtenerProvincia=function(placa){
 //funcion para obtener el tipo de vehiculo, se detemina con el segundo caracter.
 obtenerTipoVehiculo=function(placa){
     let segundaLetra=placa.charAt(1);
-    let tipoVehiculo="";
+    let tipoVehiculo=null;
     if((segundaLetra == "A") || (segundaLetra == "Z")){
         tipoVehiculo="COMERCIAL (TAXI/AUTOBUSES)";
     }
@@ -154,4 +154,28 @@ obtenerTipoVehiculo=function(placa){
         tipoVehiculo ="PARTICULAR";    
     }
     return "EL TIPO DE VEHICULO ES: "+tipoVehiculo;
+};
+
+// funcion para obtener el que dias tiene pico y placa el vehiculo, de aceurdo al ultimo digito.
+obtenerPicoYPlaca=function(placa){
+    let ultimoDigito=placa.length-1;
+    let digito=placa.charAt(ultimoDigito);
+    let diaPicoYPlaca=null;
+
+    if((digito == "1") || (digito == "2")){
+        diaPicoYPlaca="LUNES";
+    }
+    if((digito == "3") || (digito == "4")){
+        diaPicoYPlaca="MARTES";
+    }
+    if((digito == "5") || (digito == "6")){
+        diaPicoYPlaca="MIERCOLES";
+    }
+    if((digito == "7") || (digito == "8")){
+        diaPicoYPlaca="JUEVES";
+    }
+    if((digito == "9") || (digito == "0")){
+        diaPicoYPlaca="VIERNES";
+    }
+    return "TIENE PICO Y PLACA LOS DIAS: "+ diaPicoYPlaca;
 };
