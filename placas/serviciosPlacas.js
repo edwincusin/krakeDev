@@ -54,3 +54,80 @@ validarEstructura=function(placa){
     let concatenarErrores= errorUno + errorDos + errorTres + errorCuatro + errorCinco + errorSeis + errorSiete + errorOcho + errorNueve;
     return concatenarErrores;
 };
+
+// funcion obtener provincia / determinar la provincia segun el primera letra de la placa
+obtenerProvincia=function(placa){
+    let primeraLetra=placa.charAt(0);
+    let provincia="";
+    if(primeraLetra == "A"){
+        provincia="AZUAY";
+    }
+    if(primeraLetra == "B"){
+        provincia="BOLIVAR";
+    }
+    if(primeraLetra == "U"){
+        provincia="CAÑAR";
+    }
+    if(primeraLetra == "C"){
+        provincia="CARCHI";
+    }
+    if(primeraLetra == "X"){
+        provincia="COTOPAXI";
+    }
+    if(primeraLetra == "H"){
+        provincia="CHIMBORAZO";
+    }
+    if(primeraLetra == "O"){
+        provincia="EL ORO";
+    }
+    if(primeraLetra == "E"){
+        provincia="ESMERALDAS";
+    }
+    if(primeraLetra == "W"){
+        provincia="GALÁPAGOS";
+    }
+    if(primeraLetra == "G"){
+        provincia="GUAYAS";
+    }
+    if(primeraLetra == "I"){
+        provincia="IMBABURA";
+    }
+    if(primeraLetra == "L"){
+        provincia="LOJA";
+    }
+    if(primeraLetra == "R"){
+        provincia="LOS RIOS";
+    }
+    if(primeraLetra == "M"){
+        provincia="MANABÍ";
+    }
+    if(primeraLetra == "V"){
+        provincia="MORONA SANTIAGO";
+    }
+    if(primeraLetra == "N"){
+        provincia="NAPO";
+    }
+    if(primeraLetra == "S"){
+        provincia="PASTAZA";
+    }
+    if(primeraLetra == "P"){
+        provincia="PICHINCHA";
+    }
+    if(primeraLetra == "K"){
+        provincia="SUCUMBÍOS";
+    }
+    if(primeraLetra == "Q"){
+        provincia="ORELLANA";
+    }
+    if(primeraLetra == "T"){
+        provincia="TUNGURAHUA";
+    }
+    if(primeraLetra == "Z"){
+        provincia="ZAMORA CHINCHIPE";
+    }
+    if(primeraLetra == "Y"){
+        provincia="SANTA ELENA";
+    }
+
+    return provincia;
+};
