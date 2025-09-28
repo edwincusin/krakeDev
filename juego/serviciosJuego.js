@@ -21,15 +21,15 @@ generarElemento=function(){
     if(numeroAleatorio == 3){
         cadena="TIJERA";
     }
-    console.log(cadena); // para porbar en la consola
+    console.log("generar elemento: "+cadena); // para porbar en la consola
     return cadena;    
 };
 
 //funciona determinar jugador
 determinarGanador=function(eleccionJugador1,eleccionJugador2){
     let resultadoGanador;
-    eleccionJugador1="TIJERA";
-    eleccionJugador2="PAPEL"
+    eleccionJugador1="";
+    eleccionJugador2=""
     //combinacion1
     if((eleccionJugador1 == "PIEDRA") && (eleccionJugador2 == "PIEDRA")){
         resultadoGanador=0;
@@ -60,7 +60,7 @@ determinarGanador=function(eleccionJugador1,eleccionJugador2){
     if((eleccionJugador1 == "TIJERA") && (eleccionJugador2 == "TIJERA")){
         resultadoGanador=0;
     }
-    console.log(resultadoGanador); // para porbar en la consola
+    console.log("determinar ganador: " + resultadoGanador); // para porbar en la consola
     return resultadoGanador;
 };
 
@@ -75,6 +75,8 @@ generarRuta=function(nombre){
     }
     if(nombre == "TIJERA"){
         ruta="./img/tijera.png";
-    }
+    }    
+    console.log("ruta: " + ruta); // para porbar en la consola
+    return ruta;
 };
 
