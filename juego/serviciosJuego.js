@@ -21,15 +21,14 @@ generarElemento=function(){
     if(numeroAleatorio == 3){
         cadena="TIJERA";
     }
-    console.log("generar elemento: "+cadena); // para porbar en la consola
+    console.log("generar elemento computador: "+cadena); // para porbar en la consola
     return cadena;    
 };
 
 //funciona determinar jugador
 determinarGanador=function(eleccionJugador1,eleccionJugador2){
     let resultadoGanador;
-    eleccionJugador1="";
-    eleccionJugador2=""
+    //eleccionJugador2="PIEDRA"; // linea para ahcer pruebas
     //combinacion1
     if((eleccionJugador1 == "PIEDRA") && (eleccionJugador2 == "PIEDRA")){
         resultadoGanador=0;

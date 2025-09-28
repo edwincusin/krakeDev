@@ -1,0 +1,193 @@
+body{
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.principal{
+    background-image: url(./img/fondo2.png);
+    background-size: cover;
+    border-color: white;
+    margin:10px;
+    display:flex;
+    flex-direction:column;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+}
+.titulo{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 20px;
+    background-image: url(./img/fonfo1.jpg);
+    background-size: cover;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(248, 246, 246);
+    color: white;
+    
+}
+
+.contenido{
+    background-color: rgba(231, 231, 231, 0.76);
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 10px;
+    
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+ .areaJuego{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-content:center;    
+ }
+
+
+.areaSeleccionar{
+    display:flex;
+    flex: 1;
+    flex-direction:row;
+    justify-content: center;
+    align-content:center;
+     border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.areaComputador{
+    display:flex;
+    flex: 1;
+    flex-direction:column;
+    justify-content: center;
+    align-content:center;
+     border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.contenedorImgSeleccionar{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+.areaTituloCampo{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-content:center;
+ }
+
+.tituloCampo{
+    display: flex;
+    flex: 1;
+    justify-content:center;
+    align-items:center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.imagenjugador{
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);   
+    width:50%;
+}
+.imagenjugador:hover{
+    border-radius: 50%;
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(0, 255, 64);
+    width: 55%;   
+}
+
+.imagenComputador{
+    border-radius: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+   width: 20%;
+}
+
+.contenedorBoton{
+    display: flex;
+    flex: 2;
+    flex-direction:row;
+    justify-content:center;
+    align-content:center;
+}
+
+.estiloBoton{
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 15px 25px;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    border-color: blue;
+    background-color: rgb(219, 180, 255);
+    border-radius: 5px;
+    margin-left: 10PX;
+    margin-right: 10PX;
+}
+.estiloBoton:hover {
+    background-color:white; 
+    color: #4CAF50;
+    border:1px;
+    border-color: #4CAF50;
+    border-radius: 10px;
+}
+.contenedorResultados{
+    display:flex;
+    flex: 1;
+    flex-direction:column;
+    justify-content: center;
+    align-content:center;
+}
+.informacion{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 5px 20px;
+}
+.informacionFinJuego{
+    display: flex;
+    justify-content:center;
+    align-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: justify;
+    padding: 5px 20px;
+    color: blue;
+}
+
+
+
+.piePagina{
+    text-align: center;
+    margin-top: 10px;
+    background-color: azure;
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}

@@ -1,12 +1,73 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
-<head>
-    <script src="juego.js"></script>
-    <script src="serviciosJuego.js"></script>
-    <script src="utilitarios.js"></script>
-</head>
-<body>
-        <input type="button" value="preba" onclick="jugar();"/>
-</body>
+    <head>
+        <script src="juego.js"></script>
+        <script src="serviciosJuego.js"></script>
+        <script src="utilitarios.js"></script>
+        <link rel="stylesheet" href="juego.css">        
+    </head>
+    <body>
+        <div class="principal">
+
+            <div class="contenido">
+
+                <div class="titulo">
+                    <h1>JUEGA PIEDRA, PAPEL O TIJERA</h1>
+                </div>
+
+                <div class="areaTituloCampo">
+                    <div class="tituloCampo">
+                        Selección Jugador
+                    </div>
+                    <div class="tituloCampo">
+                        Selección Computador
+                    </div>
+                </div>
+
+                <div class="areaJuego">
+                    <div class="areaSeleccionar">
+                        
+                        <div class="contenedorImgSeleccionar">
+                            <img class="imagenjugador" src="./img/piedra.png" onclick="jugar('PIEDRA');"/>
+                        </div>
+                        <div class="contenedorImgSeleccionar">
+                            <img class="imagenjugador" src="./img/papel.png" onclick="jugar('PAPEL');"/>
+                        </div>
+                        <div class="contenedorImgSeleccionar">
+                            <img class="imagenjugador" src="./img/tijera.png" onclick="jugar('TIJERA');"/>
+                        </div>                    
+                    </div>
+
+                    <div class="areaComputador">                        
+                        <div class="contenedorImgSeleccionar">
+                            <img class="imagenComputador" src="" id="imgComputador"/>
+                        </div>                    
+                    </div>
+                </div>            
+                
+                <div class="contenedorResultados">
+                    <div class="informacion" id="lblGanadorPartida">
+                    </div>
+                    <div class="informacion" id="lblPuntajeJugador">
+                        --
+                    </div>
+                    <div class="informacion" id="lblPuntajeComputadora">
+                        --
+                    </div>
+                    <div class="informacionFinJuego" id="lblGanadorJuego">
+                        --
+                    </div>
+                </div>
+
+                <div class="contenedorBoton">
+                             <input class="estiloBoton" type="button" value="NUEVA PARTIDA" onclick="limpiar();" />
+                    </div>
+            </div>
+            <div class="piePagina">
+                    DERECHOS DE AUTOR : REALIZADO POR EDWIN CSN
+                    <br>
+                    QUITO ECUADOR 2025
+                </div>
+        </div>
+    </body>
 </html>
