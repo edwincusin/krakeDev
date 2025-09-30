@@ -33,7 +33,7 @@ hackearNasaPlis = function (){
     }
     console.log("la nasa ha sido hackeado");
 };
-//reto 27 ejercicios for
+//reto 37 ejercicios for
 //funcion mostrar numeros impares
 mostrarNumerosImpares=function(){
     console.log("ANTES DEL FOR");
