@@ -33,3 +33,22 @@ ejecutarPrueba2=function(){
     let cadenaInvertida=invertirCadena(mensaje);
     mostrarTexto("lblResultado",cadenaInvertida);
 };
+
+// funcion para buscar letra en una cadena
+buscarLetra=function(cadena, letra){
+    let letraIterada;
+    let existeLetra=false;
+    for(let i=0;i<=cadena.length;i++){
+        letraIterada=cadena.charAt(i);
+        if(letraIterada==letra){
+            existeLetra=true;
+        }
+    }
+
+    if(existeLetra==true){
+        return true;
+    }else{
+        return false
+    }
+
+};
