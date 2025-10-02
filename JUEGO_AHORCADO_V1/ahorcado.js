@@ -42,4 +42,27 @@ guardarPalabra=function(){
         alert("LA PALABRA DEBE TENER 5 LETRAS MAYUSCULAS.");
     }
 
+    for(i=0; i<=4;i++){
+        mostrarLetra(palabraSecreta.charAt(i),i);
+    }
+    
+};
+
+//FUNCION MOSTRAR LETRA 
+mostrarLetra=function(letra,posicion){
+    if(posicion == 0){
+        mostrarTexto("div0",letra);
+    }
+    if(posicion == 1){
+        mostrarTexto("div1",letra);
+    }
+    if(posicion == 2){
+        mostrarTexto("div2",letra);
+    }
+    if(posicion == 3){
+        mostrarTexto("div3",letra);
+    }
+    if(posicion == 4){
+        mostrarTexto("div4",letra);
+    }
 };
