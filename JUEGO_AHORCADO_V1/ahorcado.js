@@ -1,6 +1,9 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe : 1, 2 Y 3 A COMENZAR. 
 //variables globales
 let palabraSecreta="";
+let intentos=0;
+let coicidencias=0;
+let errores=0;
 
 
 
@@ -72,6 +75,11 @@ validar=function(letra){
             mostrarLetra(palabraSecreta.charAt(i),i);
         }
     }
+    coicidencias=coicidencias+letrasEncontradas;
+    if(letrasEncontradas == 0){
+        alert("LA LETRA NO ES PARTE DE LA PALABRA");
+        errores++;
+    }
 };
 
 // FUNCION INGRESAR LETRA LA CUAL SERA INVOCADA DESDE EL BOTON VALIDAR 
@@ -82,4 +90,14 @@ ingresarletra=function(){
     }else{
         alert("SOLO SE ACEPTAN MAYUSCULAS");
     }
+    intentos++; //incremento de intentos 
+    console.log("numero intentos "+intentos);// LINEA PARA PROBRAR EN CONSOLA
+    console.log("numero coicidencias "+coicidencias);// LINEA PARA PROBRAR EN CONSOLA
+    if(coicidencias == 5){
+        alert("HA GANADO")
+    }
+    if(intentos == 10){
+        alert("HA PERDIDO")
+    }
+
 };
