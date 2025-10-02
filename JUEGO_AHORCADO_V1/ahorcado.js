@@ -95,10 +95,10 @@ ingresarletra=function(){
     console.log("numero intentos "+intentos);// LINEA PARA PROBRAR EN CONSOLA
     console.log("numero coicidencias "+coicidencias);// LINEA PARA PROBRAR EN CONSOLA
     if(coicidencias == 5){
-        alert("HA GANADO")
+        mostrarImagen("ahorcadoImagen","./ganador.gif");
     }
     if(intentos == 10){
-        alert("HA PERDIDO")
+        mostrarImagen("ahorcadoImagen","./gameOver.gif");
     }
 };
 
