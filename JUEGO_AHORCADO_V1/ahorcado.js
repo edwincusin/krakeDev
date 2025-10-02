@@ -41,11 +41,7 @@ guardarPalabra=function(){
     }else{
         alert("LA PALABRA DEBE TENER 5 LETRAS MAYUSCULAS.");
     }
-
-    for(i=0; i<=4;i++){
-        mostrarLetra(palabraSecreta.charAt(i),i);
-    }
-    
+       
 };
 
 //FUNCION MOSTRAR LETRA 
@@ -66,3 +62,15 @@ mostrarLetra=function(letra,posicion){
         mostrarTexto("div4",letra);
     }
 };
+
+//FUNCION VALIDAR
+validar=function(letra){
+    let letrasEncontradas=0;
+    for(let i=0;i<=palabraSecreta.length-1;i++){
+        if(palabraSecreta.charAt(i) == letra){
+            letrasEncontradas++;
+            mostrarLetra(palabraSecreta.charAt(i),i);
+        }
+    }
+};
+
