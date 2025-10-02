@@ -74,3 +74,12 @@ validar=function(letra){
     }
 };
 
+// FUNCION INGRESAR LETRA LA CUAL SERA INVOCADA DESDE EL BOTON VALIDAR 
+ingresarletra=function(){
+    let valorTxtLetra=recuperarTexto("txtLetra");
+    if(esMayuscula(valorTxtLetra)){
+        validar(valorTxtLetra);
+    }else{
+        alert("SOLO SE ACEPTAN MAYUSCULAS");
+    }
+};
