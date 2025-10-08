@@ -4,12 +4,19 @@ let empleados = [
     { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
     { cedula: "1753081056", nombre: "Edwin", apellido: "Cusin", sueldo: 700.0 }
 ];
+//VARIABLE GLOBAL 
+let esNuevo = false;
 
 //FUNCION MOSTRSR OPCION EMPLEADO 
 mostrarOpcionEmpleado = function() {
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
     mostrarEmpleados(); //MOSTRAR TABLA EMPLEADOS
 };
 
@@ -47,7 +54,15 @@ mostrarEmpleados = function() {
             "</tr>";
     }
     contenidoTabla += "</table>"
-
     mostrarTabla("tablaEmpleados", contenidoTabla);
+};
 
+//FUNCION EJECUTAR NUEVO 
+ejecutarNuevo = function() {
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+    esNuevo = true;
 };
