@@ -66,3 +66,30 @@ ejecutarNuevo = function() {
     habilitarComponente("btnGuardar");
     esNuevo = true;
 };
+
+//FUNCION BUSCAR EMPLEADO
+buscarEmpleado = function(cedula) {
+    let elementoEmpleado;
+    let empleadoEncontrado = null;
+    for (let i = 0; i < empleados.length; i++) {
+        elementoEmpleado = empleados[i];
+        if (elementoEmpleado.cedula == cedula) {
+            empleadoEncontrado = elementoEmpleado;
+            break;
+        }
+    }
+    return empleadoEncontrado;
+};
+
+//FUNCION AGREGAR EMPLEADO
+agregarEmpleado = function(empleado) {
+    let resultadoBuscar = buscarEmpleado(empleado.cedula);
+    if (resultadoBuscar == null) {
+        empleados.push(empleado);
+        alert("REGISTRO COMPLETO");
+        return true;
+    } else {
+        alert("YA EXISTE REGISTRO CON LA CEDULA DIGITADA");
+        return false;
+    }
+};
