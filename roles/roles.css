@@ -81,11 +81,11 @@ body {
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #908efc;
+    background-color: #f3f3f3;
 }
 
 tbody tr:nth-child(even) {
-    background-color: #6a51cf;
+    background-color: #bab8bb;
 }
 
 tbody tr {
@@ -95,10 +95,15 @@ tbody tr {
 table {
     background-color: #0b0c0c;
     width: 100%;
+    border: #00ff08 solid 2px;
 }
 
 td {
     text-align: center;
+}
+
+th {
+    background-color: #fda80b;
 }
 
 .areaTabla {
