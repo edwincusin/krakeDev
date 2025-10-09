@@ -12,11 +12,7 @@ mostrarOpcionEmpleado = function() {
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
+    desabilitarCmpTxt();
     mostrarEmpleados(); //MOSTRAR TABLA EMPLEADOS
 };
 
@@ -113,17 +109,11 @@ guardar = function() {
             if (resultadoAgregarEmpleado == true) {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE"); // linea para confirmar registro
                 mostrarEmpleados();
-                deshabilitarComponente("txtCedula");
-                deshabilitarComponente("txtNombre");
-                deshabilitarComponente("txtApellido");
-                deshabilitarComponente("txtSueldo");
-                deshabilitarComponente("btnGuardar");
+                desabilitarCmpTxt();
             } else {
                 alert("YA EXISTE REGISTRO CON LA CEDULA " + valorCedula); // linea para confirmar registro
             }
         }
-    } else {
-        alert("imposible reg")
     }
 };
 
@@ -220,4 +210,12 @@ esCadenaMayuscula = function(cadena) {
         }
     }
     return esMayuscula;
+};
+
+desabilitarCmpTxt = function() {
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
 };
