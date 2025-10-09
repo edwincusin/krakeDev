@@ -98,7 +98,7 @@ guardar = function() {
     let valorSueldo = recuperarTexto("txtSueldo");
 
     if (validarCajaTextoCedula(valorCedula) && validarCajaTextoNombre(valorNombre) && validarCajaTexApellido(valorApellido) && validarCajaTextoSueldo(valorSueldo)) {
-        if (esNuevo == true) {
+        if (esNuevo == true) { //PARA AGREGAR UN NUEVO EMPLEADO
             let nuevoEmpleado = {};
             nuevoEmpleado.cedula = valorCedula;
             nuevoEmpleado.nombre = valorNombre;
@@ -110,9 +110,22 @@ guardar = function() {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE"); // linea para confirmar registro
                 mostrarEmpleados();
                 desabilitarCmpTxt();
+                esNuevo = false;
             } else {
                 alert("YA EXISTE REGISTRO CON LA CEDULA " + valorCedula); // linea para confirmar registro
             }
+        } else { //PARA MODIFICAR UN REGISTRO
+            let empleadoEncotrado = buscarEmpleado(valorCedula);
+            if (empleadoEncotrado != null) {
+                empleadoEncotrado.cedula = valorCedula;
+                empleadoEncotrado.nombre = valorNombre;
+                empleadoEncotrado.apellido = valorApellido;
+                empleadoEncotrado.sueldo = valorSueldo;
+                desabilitarCmpTxt();
+                mostrarEmpleados();
+                alert("EMPLEADO MOFICIADO EXISTOSAMENTE"); // linea para confirmar registro
+            }
+
         }
     }
 };
@@ -212,6 +225,31 @@ esCadenaMayuscula = function(cadena) {
     return esMayuscula;
 };
 
+//FUNCION EJECUTAR BUSQUEDA 
+ejecutarBusqueda = function() {
+    let valorCedula = recuperarTexto("txtBusquedaCedula");
+    let resultadoBuscarEmpleado = buscarEmpleado(valorCedula);
+
+    if (resultadoBuscarEmpleado != null) {
+        mostrarTextoEnCaja("txtCedula", resultadoBuscarEmpleado.cedula);
+        mostrarTextoEnCaja("txtNombre", resultadoBuscarEmpleado.nombre);
+        mostrarTextoEnCaja("txtApellido", resultadoBuscarEmpleado.apellido);
+        mostrarTextoEnCaja("txtSueldo", resultadoBuscarEmpleado.sueldo);
+
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+        habilitarComponente("btnGuardar");
+    } else {
+        alert("EMPLEADO NO EXISTE");
+    }
+};
+
+
+
+
+
+//desabilita la cajas de texto y el boton guardar
 desabilitarCmpTxt = function() {
     deshabilitarComponente("txtCedula");
     deshabilitarComponente("txtNombre");
