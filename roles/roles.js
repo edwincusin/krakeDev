@@ -101,9 +101,6 @@ guardar = function() {
     let valorApellido = recuperarTexto("txtApellido");
     let valorSueldo = recuperarTexto("txtSueldo");
 
-
-
-
     if (validarCajaTextoCedula(valorCedula) && validarCajaTextoNombre(valorNombre) && validarCajaTexApellido(valorApellido) && validarCajaTextoSueldo(valorSueldo)) {
         if (esNuevo == true) {
             let nuevoEmpleado = {};
@@ -116,6 +113,11 @@ guardar = function() {
             if (resultadoAgregarEmpleado == true) {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE"); // linea para confirmar registro
                 mostrarEmpleados();
+                deshabilitarComponente("txtCedula");
+                deshabilitarComponente("txtNombre");
+                deshabilitarComponente("txtApellido");
+                deshabilitarComponente("txtSueldo");
+                deshabilitarComponente("btnGuardar");
             } else {
                 alert("YA EXISTE REGISTRO CON LA CEDULA " + valorCedula); // linea para confirmar registro
             }
@@ -124,7 +126,6 @@ guardar = function() {
         alert("imposible reg")
     }
 };
-
 
 //funcion validar 10 caracteres digitos cedula
 validarCajaTextoCedula = function(cedula) {
