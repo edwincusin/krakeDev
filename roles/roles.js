@@ -245,10 +245,6 @@ ejecutarBusqueda = function() {
     }
 };
 
-
-
-
-
 //desabilita la cajas de texto y el boton guardar
 desabilitarCmpTxt = function() {
     deshabilitarComponente("txtCedula");
@@ -256,4 +252,17 @@ desabilitarCmpTxt = function() {
     deshabilitarComponente("txtApellido");
     deshabilitarComponente("txtSueldo");
     deshabilitarComponente("btnGuardar");
+};
+//FUNCION LIMPIAR 
+limpiar = function() {
+    desabilitarCmpTxt();
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    mostrarTexto("lblErrorCedula", "");
+    mostrarTexto("lblErrorNombre", "");
+    mostrarTexto("lblErrorApellido", "");
+    mostrarTexto("lblErrorSueldo", "");
+    esNuevo = false;
 };
