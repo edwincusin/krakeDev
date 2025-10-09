@@ -7,6 +7,7 @@ let empleados = [
 //VARIABLE GLOBAL 
 let esNuevo = false;
 
+//-----------------------------------MENU/OCULTAR/DESHABILITAR/HABILITAR-------------
 //FUNCION MOSTRSR OPCION EMPLEADO 
 mostrarOpcionEmpleado = function() {
     mostrarComponente("divEmpleado");
@@ -29,6 +30,19 @@ mostrarOpcionResumen = function() {
     ocultarComponente("divRol");
     mostrarComponente("divResumen");
 };
+
+//desabilita la cajas de texto y el boton guardar
+desabilitarCmpTxt = function() {
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
+};
+
+//----------------------------------------------------------------------------------
+
+//----------------------------OPCION EMPLEADO---------------------------
 
 // FUNCION MOSTRAR EMPLEADOS 
 mostrarEmpleados = function() {
@@ -245,14 +259,7 @@ ejecutarBusqueda = function() {
     }
 };
 
-//desabilita la cajas de texto y el boton guardar
-desabilitarCmpTxt = function() {
-    deshabilitarComponente("txtCedula");
-    deshabilitarComponente("txtNombre");
-    deshabilitarComponente("txtApellido");
-    deshabilitarComponente("txtSueldo");
-    deshabilitarComponente("btnGuardar");
-};
+
 //FUNCION LIMPIAR 
 limpiar = function() {
     desabilitarCmpTxt();
@@ -266,3 +273,22 @@ limpiar = function() {
     mostrarTexto("lblErrorSueldo", "");
     esNuevo = false;
 };
+
+//---------------------------- FIN OPCION EMPLEADO---------------------------
+//---------------------------- OPCION ROL------------------------------------
+//FUNCION BUSCAR POR ROL
+buscarPorRol = function() {
+    let valorBusquedaCedula = recuperarTexto("txtBusquedaCedulaRol");
+    let empleadoEncontrado = buscarEmpleado(valorBusquedaCedula);
+
+    if (empleadoEncontrado != null) {
+        mostrarTexto("infoCedula", empleadoEncontrado.cedula);
+        mostrarTexto("infoNombre", empleadoEncontrado.nombre + " " + empleadoEncontrado.apellido);
+        mostrarTexto("infoSueldo", empleadoEncontrado.sueldo);
+    } else {
+        alert("EMPLEADO CON LA CEDULA" + valorBusquedaCedula + " NO EXISTE");
+    }
+};
+
+
+//---------------------------- FIN OPCION ROL---------------------------
