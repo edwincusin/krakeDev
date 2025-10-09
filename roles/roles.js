@@ -39,9 +39,7 @@ desabilitarCmpTxt = function() {
     deshabilitarComponente("txtSueldo");
     deshabilitarComponente("btnGuardar");
 };
-
 //----------------------------------------------------------------------------------
-
 //----------------------------OPCION EMPLEADO---------------------------
 
 // FUNCION MOSTRAR EMPLEADOS 
@@ -290,5 +288,55 @@ buscarPorRol = function() {
     }
 };
 
+//FUNCION CALCULAR APORTE EMPLEADO
+calcularAporteEmpleado = function(sueldo) {
+    let aporte = ((sueldo * 9.45) / 100).toFixed(2);
+    return aporte;
+};
+
+//FUNCION CALCULAR VALOR A PAGAR 
+calcularValorAPagar = function(sueldo, aporteIees, descuento) {
+    let valorPagarEmpleado = (sueldo - aporteIees - descuento).toFixed(2);
+    return valorPagarEmpleado;
+};
+
+//FUNCION CALCULAR ROL
+calcularRol = function() {
+    let valorSueldo = recuperarFloatDiv("infoSueldo");
+    let valorDescuentoTxt = recuperarTexto("txtDescuentos"); // LINEA PARA VALIDAR CAJA EN STRING
+    let valorDescuentoFloat = recuperarFloat("txtDescuentos");
+    if (validarCajaTextoDescuento(valorDescuentoTxt, valorDescuentoFloat, valorSueldo)) {
+        let resultadoAporte = calcularAporteEmpleado(valorSueldo);
+        mostrarTexto("infoIESS", resultadoAporte);
+        let valorTotalPagar = calcularValorAPagar(valorSueldo, resultadoAporte, valorDescuentoFloat);
+        mostrarTexto("infoPago", valorTotalPagar);
+    }
+};
+
+//funcion validar caja texto descuento, debe ser un float
+validarCajaTextoDescuento = function(descuentoTxt, descuentoFloat, sueldo) {
+    let existeError = false;
+    let esFloat = descuentoFloat % 1;
+    if (descuentoTxt == "") {
+        mostrarTexto("lblErrorDescuentos", "Campo obligatorio*");
+        existeError = true;
+    } else if (isNaN(descuentoTxt)) {
+        mostrarTexto("lblErrorDescuentos", "Ingresar solo digitos");
+        existeError = true;
+    } else if (descuentoTxt < 0.0 || descuentoTxt > sueldo) {
+        mostrarTexto("lblErrorDescuentos", "Valor permitido entre 0 y " + sueldo);
+        existeError = true;
+    } else if (descuentoFloat != 0) {
+        if (esFloat == 0) {
+            mostrarTexto("lblErrorDescuentos", "Debe ser un float ejem:30.14");
+            existeError = true;
+        } else {
+            mostrarTexto("lblErrorDescuentos", "");
+        }
+    } else {
+        mostrarTexto("lblErrorDescuentos", "");
+    }
+    return !existeError;
+};
 
 //---------------------------- FIN OPCION ROL---------------------------
