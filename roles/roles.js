@@ -33,6 +33,7 @@ mostrarOpcionResumen = function() {
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
     mostrarComponente("divResumen");
+    mostrarRoles()
 };
 
 //desabilita la cajas de texto y el boton guardar
@@ -399,6 +400,52 @@ guardarRol = function() {
     rol.aporteEmpleado = valorAporteEmpleado;
     rol.aporteEmpleador = valorAporteEmpleador;
     agregarRol(rol);
+};
+
+//FUNCION MOSTRAR ROL EN UNA TABLA
+mostrarRoles = function() {
+    let contenidoTabla = "<table>" +
+        "<tr>" +
+        "<th>CEDULA</th>" +
+        "<th>NOMBRE</th>" +
+        "<th>VALOR A PAGAR</th>" +
+        "<th>APORTE EMPLEADO</th>" +
+        "<th>APORTE EMPLEADOR</th>" +
+        "</tr>";
+    let elementoRol;
+    for (let i = 0; i < roles.length; i++) {
+        elementoRol = roles[i];
+        contenidoTabla += "<tr>" +
+            "<td>" + elementoRol.cedula + "</td>" +
+            "<td>" + elementoRol.nombre + "</td>" +
+            "<td>" + elementoRol.valorAPagar + "</td>" +
+            "<td>" + elementoRol.aporteEmpleado + "</td>" +
+            "<td>" + elementoRol.aporteEmpleador + "</td>" +
+            "</tr>";
+    }
+    contenidoTabla += "</table>";
+    mostrarTabla("tablaResumen", contenidoTabla);
+    mostrarTotales();
+};
+
+//FUNCION MOSTRAR TOTALES
+mostrarTotales = function() {
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalAPagar = 0;
+    let totalNomina = 0;
+    let elementoRol;
+    for (let i = 0; i < roles.length; i++) {
+        elementoRol = roles[i];
+        totalAPagar += elementoRol.valorAPagar;
+        totalEmpleado += elementoRol.aporteEmpleado;
+        totalEmpleador += elementoRol.aporteEmpleador;
+    }
+    totalNomina = (totalAPagar + totalEmpleado + totalEmpleador).toFixed(2);
+    mostrarTexto("infoTotalPago", totalAPagar.toFixed(2));
+    mostrarTexto("infoAporteEmpresa", totalEmpleador.toFixed(2));
+    mostrarTexto("infoAporteEmpleado", totalEmpleado.toFixed(2));
+    mostrarTexto("infoTotalNomina", totalNomina);
 };
 
 //--------------------  FIN OPCION GUARDAR ROL Y MOSTRAR ROL----------------------
