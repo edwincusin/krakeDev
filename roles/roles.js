@@ -1,9 +1,12 @@
-// ARRAY GLOBAL CON VARIOS OBJETOS CON ATRIBUTOS INICIALIZADOS
+// ARRAY GLOBAL EMPLEADOS CON VARIOS OBJETOS CON ATRIBUTOS INICIALIZADOS
 let empleados = [
     { cedula: "1714616123", nombre: "John", apellido: "Cena", sueldo: 500.0 },
     { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
     { cedula: "1753081056", nombre: "Edwin", apellido: "Cusin", sueldo: 700.0 }
 ];
+//ARRAY GLOBAL ROLES SIN ELEMENTOS.
+let roles = [];
+
 //VARIABLE GLOBAL 
 let esNuevo = false;
 
@@ -22,6 +25,7 @@ mostrarOpcionRol = function() {
     ocultarComponente("divEmpleado");
     mostrarComponente("divRol");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
 };
 
 //FUNCION MOSTRSR OPCION RESUMEN 
@@ -290,8 +294,8 @@ buscarPorRol = function() {
 
 //FUNCION CALCULAR APORTE EMPLEADO
 calcularAporteEmpleado = function(sueldo) {
-    let aporte = ((sueldo * 9.45) / 100).toFixed(2);
-    return aporte;
+    let aporteEmpleado = ((sueldo * 9.45) / 100).toFixed(2);
+    return aporteEmpleado;
 };
 
 //FUNCION CALCULAR VALOR A PAGAR 
@@ -310,6 +314,11 @@ calcularRol = function() {
         mostrarTexto("infoIESS", resultadoAporte);
         let valorTotalPagar = calcularValorAPagar(valorSueldo, resultadoAporte, valorDescuentoFloat);
         mostrarTexto("infoPago", valorTotalPagar);
+        if (!isNaN(resultadoAporte) && (!isNaN(valorTotalPagar))) {
+            habilitarComponente("btnGuardarRol");
+        } else {
+            alert("NO EXISTEN DATOS PARA CALCULAR, REVISAR CAMPOS SUELDO Y DESCUENTO");
+        }
     }
 };
 
@@ -340,3 +349,56 @@ validarCajaTextoDescuento = function(descuentoTxt, descuentoFloat, sueldo) {
 };
 
 //---------------------------- FIN OPCION ROL---------------------------
+//--------------------  OPCION GUARDAR ROL Y MOSTRAR ROL----------------------
+//FUNCION BUSCAR ROL
+buscarRol = function(cedula) {
+    let elementoRol;
+    let rolEncontrado = null;
+    for (let i = 0; i < roles.length; i++) {
+        elementoRol = roles[i];
+        if (elementoRol.cedula == cedula) {
+            rolEncontrado = elementoRol;
+            break;
+        }
+    }
+    return rolEncontrado;
+};
+
+//FUNCION AGREGAR ROL
+agregarRol = function(rol) {
+    let resultadoBusquedaRol = buscarRol(rol.cedula);
+    if (resultadoBusquedaRol == null) {
+        roles.push(rol);
+        alert("REGISTRO EXITOSO"); //PARA NOTIFICAR QUE SE REGISTRO
+        deshabilitarComponente("btnGuardarRol");
+    } else {
+        alert("YA EXISTE ROL CON EL MISMA CEDULA " + rol.cedula + " REALIZAR PROCESO CON NUEVO CONSULTA")
+        deshabilitarComponente("btnGuardarRol");
+    }
+};
+
+//FUNCION CALCULAR APORTE EMPLEADOR
+calcularAporteEmpleador = function(sueldo) {
+    let aporteEmpleador = parseFloat(((sueldo * 11.15) / 100).toFixed(2));
+    return aporteEmpleador;
+};
+
+//FUNCION GUARDAR ROL
+guardarRol = function() {
+    let valorCedula = recuperarTextoDiv("infoCedula");
+    let valorNombreApellido = recuperarTextoDiv("infoNombre");
+    let valorSueldo = recuperarFloatDiv("infoSueldo");
+    let valorAporteEmpleado = recuperarFloatDiv("infoIESS");
+    let valorTotalPagar = recuperarFloatDiv("infoPago");
+    let valorAporteEmpleador = calcularAporteEmpleador(valorSueldo);
+    let rol = {};
+    rol.cedula = valorCedula;
+    rol.nombre = valorNombreApellido;
+    rol.sueldo = valorSueldo;
+    rol.valorAPagar = valorTotalPagar;
+    rol.aporteEmpleado = valorAporteEmpleado;
+    rol.aporteEmpleador = valorAporteEmpleador;
+    agregarRol(rol);
+};
+
+//--------------------  FIN OPCION GUARDAR ROL Y MOSTRAR ROL----------------------
