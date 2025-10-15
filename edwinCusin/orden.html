@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="orden.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body onload="mostrarPersonas();">
+    <div class="principal">
+
+        <div class="contenido">
+
+            <div class="titulo">
+                <h1>EVALUACIÓN INDIVIDUAL</h1>
+            </div>
+
+            <div class="areaIngresoDatos">
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOMBRE:
+                    </div>
+                    <div class="contenedorCajaTexto">
+                        <input class="cajaTexto" type="text" id="txtNombre" />
+                        <div class="error" id="errorNombre"></div>
+                    </div>
+                </div>
+
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        EDAD:
+                    </div>
+                    <div class="contenedorCajaTexto">
+                        <input class="cajaTexto" type="text" id="txtEdad" />
+                        <div class="error" id="errorEdad"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contenedorBoton">
+                <input class="estiloBoton" type="button" value="GUARDAR" onclick="agregarPersona();" />
+                <input class="estiloBoton" type="button" value="ENCONTRAR MAYOR" onclick="determinarMayor();" />
+                <input class="estiloBoton" type="button" value="ENCONTRAR MENOR" onclick="determinarMenor();" />
+
+            </div>
+
+            <div class="tablaResultados" id="tablaDatos">
+            </div>
+
+            <div class="areaResultadoPersonaMayor">
+                <div class="resultadoPersonaMayor" id="lblPersonaMayor">
+
+                </div>
+                <div class="resultadoPersonaMayor" id="lblPersonaMenor">
+
+                </div>
+            </div>
+
+        </div>
+        <div class="piePagina">
+            <h5> REALIZADO POR EDWIN CSN - QUITO ECUADOR 2025</h5>
+        </div>
+    </div>
+</body>
+
+</html>
